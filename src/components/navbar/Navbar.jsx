@@ -2,8 +2,13 @@ import React from 'react';
 import Links from "./../../components/navbar/links/Links";
 import styles from './navbar.module.css'
 import Link from "next/link";
+import {auth} from "../../lib/auth";
 
-function Navbar() {
+async function Navbar() {
+
+    //session means isAuthenticated
+    const session = await auth();
+
     return (
         <div className={styles.container}>
             <Link
@@ -12,7 +17,8 @@ function Navbar() {
                 Logo
             </Link>
             <div>
-                <Links/>
+                <Links
+                    session={session}/>
             </div>
         </div>
     );

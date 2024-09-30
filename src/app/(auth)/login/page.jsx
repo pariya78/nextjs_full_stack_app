@@ -1,11 +1,20 @@
-import React from 'react';
+"use client"
+import LoginForm from "./../../../components/loginForm/loginForm";
+import {handleGithubLogin} from "../../../lib/action";
+import styles from "./login.module.css";
 
-//this is login page
+const LoginPage = () => {
 
-function LoginPage(props) {
     return (
-        <div>LoginPage</div>
+        <div className={styles.container}>
+            <div className={styles.wrapper}>
+                <form action={handleGithubLogin}>
+                    <button className={styles.github}>Login with Github</button>
+                </form>
+                <LoginForm/>
+            </div>
+        </div>
     );
-}
+};
 
 export default LoginPage;
